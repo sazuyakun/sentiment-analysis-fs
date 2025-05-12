@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  /* Define the container padding */
+  --container-padding: 1rem;
+  --container-padding-md: 1.5rem;
+  --container-padding-lg: 2rem;
+
+  /* Center the container by default */
+  --container-margin: auto;
+}
+
+/* Apply padding and centering to the container */
+@layer components {
+  .container {
+    margin-inline: var(--container-margin);
+    padding-inline: var(--container-padding);
+    @media (min-width: 768px) {
+      padding-inline: var(--container-padding-md);
+    }
+    @media (min-width: 1024px) {
+      padding-inline: var(--container-padding-lg);
+    }
+  }
+}
