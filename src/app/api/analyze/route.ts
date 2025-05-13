@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import axios from "axios";
 import { MongoClient } from 'mongodb'
 
-const client = new MongoClient(process.env.MONGODB_URI);
+const client = new MongoClient(process.env.MONGODB_URI!);
 
 export async function POST(request: Request) {
   try {
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     }
 
     // call FastAPI backend
-    const response = await axios.post(process.env.FASTAPI_URL, { text });
+    const response = await axios.post(process.env.FASTAPI_URL!, { text });
     const result = response.data;
 
     // Connect to MongoDB
